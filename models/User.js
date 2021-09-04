@@ -5,9 +5,13 @@ const jwt = require('jsonwebtoken');
 
 const sano =10;
 
-const cartitemschema = mongoose.Schema({
-    item: mongoose.ObjectId,
-    qty: Number,
+const transactSchema = mongoose.Schema({
+    type: {
+        type: String,
+        default: "Miscellaneous",
+        required: true,
+    },
+    cost: Number,
 })
 
 const userSchema = mongoose.Schema({
@@ -33,21 +37,9 @@ const userSchema = mongoose.Schema({
     },
     resetPasswordToken: String,
     resetPasswordExpire: Date,
-    cart : [cartitemschema],
+    expenditure: [transactSchema],
 });
 
-userSchema.methods.updatecart = async function(id,qty){
-    if(qty==0){
-        this.cart.pull({_id:id});
-        await this.save();
-    }
-    else{
-        var doc = this.cart.id(id);
-        this.cart.pull({_id:id});
-        this.cart.push({_id:id,item:doc.item,qty:qty});
-        await this.save();
-    }
-}
 
 userSchema.pre("save", async function (next) {
     if (!this.isModified("password")){
