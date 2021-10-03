@@ -17,11 +17,14 @@
     "url": "https://github.com/architchopra/moneywisebackend/issues"
   },
   "dependencies": {
+    "axios": "^0.22.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "google-auth-library": "^7.10.0",
+    "googleapis": "^85.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.4"
   }

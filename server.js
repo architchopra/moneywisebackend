@@ -4,8 +4,10 @@ const authRoutes = require("./routes/authRoutes");
 const privateRoutes = require("./routes/private");
 const connectDB = require("./config/db");
 const cors = require("cors");
+//const gauth = require("./config/gauth");
 
 connectDB();
+//gauth();
 
 const app = express();
 

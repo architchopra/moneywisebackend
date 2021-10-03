@@ -12,6 +12,21 @@ const transactSchema = mongoose.Schema({
         required: true,
     },
     cost: Number,
+});
+
+const gauthtokenSchema = mongoose.Schema({
+    access_token : {
+        type: String,
+    },
+    refresh_token : {
+        type: String,
+    },
+    scope: {
+        type: String, 
+    },
+    token_type: {
+        type: String,
+    }
 })
 
 const userSchema = mongoose.Schema({
@@ -38,6 +53,7 @@ const userSchema = mongoose.Schema({
     resetPasswordToken: String,
     resetPasswordExpire: Date,
     expenditure: [transactSchema],
+    gauthtoken: gauthtokenSchema,
 });
 
 
