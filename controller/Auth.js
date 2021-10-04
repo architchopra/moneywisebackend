@@ -177,7 +177,7 @@ exports.gauthcallback = async (req,res,next)=>{
         const oauth2Client = new google.auth.OAuth2(
             process.env.CLIENT_ID,
             process.env.CLIENT_SECRET,
-            gauthcallback
+            'postmessage'
         );
 
         const {code} = req.query;
