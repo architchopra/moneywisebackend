@@ -12,6 +12,9 @@ const transactSchema = mongoose.Schema({
         required: true,
     },
     cost: Number,
+},
+{
+    timestamps: true
 });
 
 const gauthtokenSchema = mongoose.Schema({
@@ -53,6 +56,7 @@ const userSchema = mongoose.Schema({
     resetPasswordToken: String,
     resetPasswordExpire: Date,
     expenditure: [transactSchema],
+    earning: [transactSchema],
     gauthtoken: gauthtokenSchema,
 });
 
