@@ -3,9 +3,9 @@ const ErrorResponse = require('../utils/errorResponse');
 
 exports.addearning= async(req,res,next)=>{
     try {
-        const {type,cost}=req.body;
+        const {type,cost,date}=req.body;
         const user = await User.findById(req.user._id);
-        user.earning.push({type:type,cost:cost});
+        user.earning.push({type:type,cost:cost,date:date});
         await user.save();
         res.status(201).json({
             success:true,

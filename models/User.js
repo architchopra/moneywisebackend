@@ -12,9 +12,7 @@ const transactSchema = mongoose.Schema({
         required: true,
     },
     cost: Number,
-},
-{
-    timestamps: true
+    date: Date,
 });
 
 const gauthtokenSchema = mongoose.Schema({
