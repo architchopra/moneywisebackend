@@ -3,7 +3,7 @@ const ErrorResponse = require('../utils/errorResponse');
 
 exports.addexpense= async(req,res,next)=>{
     try {
-        const {type,cost}=req.body;
+        const {type,cost,date}=req.body;
         const user = await User.findById(req.user._id);
         user.expenditure.push({type:type,cost:cost,date:date});
         await user.save();
