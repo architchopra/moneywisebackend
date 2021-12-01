@@ -7,8 +7,8 @@ const {getmail} = require('../controller/Mails');
 
 router.post('/expenses/add',protect,addexpense);
 router.post('/expenses',protect,findexpense);
-router.post('/earning/add',protect,addearning);
-router.post('/earning',protect,findearning);
+router.post('/earnings/add',protect,addearning);
+router.post('/earnings',protect,findearning);
 router.post('/mails',protect,getmail);
 
 module.exports= router;

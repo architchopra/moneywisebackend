@@ -19,10 +19,14 @@ exports.addearning= async(req,res,next)=>{
 exports.findearning = async(req,res,next)=>{
     try {
         const user= await User.findById(req.user._id);
+        let earnings= user.earning;
+        earnings.sort((a,b)=>{
+            return b.date-a.date;
+        });
         res.status(200).json({
-            earning:user.earning
+            earning:earnings
         })
     } catch (error) {
-        
+        console.log(error);
     }
 }

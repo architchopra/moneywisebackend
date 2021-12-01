@@ -19,10 +19,14 @@ exports.addexpense= async(req,res,next)=>{
 exports.findexpense = async(req,res,next)=>{
     try {
         const user= await User.findById(req.user._id);
+        let expenses=user.expenditure;
+        expenses.sort((a,b)=>{
+            return b.date-a.date;
+        });
         res.status(200).json({
-            expenses:user.expenditure
+            expenses:expenses
         })
     } catch (error) {
-        
+        console.log(error);
     }
 }
